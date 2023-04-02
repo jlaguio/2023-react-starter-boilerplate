@@ -3,13 +3,22 @@
         "browser": true,
         "es2021": true
     },
+    "settings": {
+        "import/resolver": {
+            "typescript": {}
+        }
+    },    
     "extends": [
         "eslint:recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
         "plugin:react/recommended",
-        "plugin:@typescript-eslint/recommended"
+        "plugin:react/jsx-runtime"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
+        "project": "./tsconfig.json",
+        "tsconfigRootDir": "./",
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
@@ -17,7 +26,8 @@
         "react",
         "@typescript-eslint",
         "unused-imports",
-        "simple-import-sort"
+        "simple-import-sort",
+        "import"
     ],
     "rules": {
         "indent": [
@@ -32,25 +42,30 @@
             "error",
             "never"
         ],
-
-        "linebreak-style": 0,
-
-        
+        "linebreak-style": 0
     },
-    "overrides": [{
-        "files": [
-            "src/**/*.tsx"
-        ],
-        "rules": {
-            "unused-imports/no-unused-imports": "error",
-            "unused-imports/no-unused-vars": "warn",
+    "overrides": [
+        {
+            "files": [
+                "**/*.tsx",
+                "**/*.ts"
+            ],
+            "rules": {
+                "unused-imports/no-unused-imports": "error",
+                "unused-imports/no-unused-vars": "warn",
 
-             // We use `simple-import-sort` for this
-            "sort-imports": 0,
-            "simple-import-sort/imports": "error",
-            "simple-import-sort/exports": "error",
-
-            "react/react-in-jsx-scope": 0
+                // We use `simple-import-sort` for this
+                "sort-imports": 0,
+                "simple-import-sort/imports": "error",
+                "simple-import-sort/exports": "error"
+            
+            }
+        },
+        {
+            "files": [
+                "**/*.tsx"
+            ],
+            "rules": { }
         }
-    }]
+    ]
 }

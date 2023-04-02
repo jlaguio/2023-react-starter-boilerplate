@@ -1,0 +1,5 @@
+.eslintrc.json
+vite.config.ts
+ios/
+android/
+*.config.js

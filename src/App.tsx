@@ -1,7 +1,9 @@
-import { Route, Routes } from 'react-router-dom'
-import Home from './collator/pages/home/home'
-import Sandbox from './collator/pages/sandbox/sandbox'
 import './index.css'
+
+import { Route, Routes } from 'react-router-dom'
+
+import Home from '@collator/pages/Home'
+import Sandbox from '@collator/pages/Sandbox'
 
 function App() {
 	return (
