@@ -1,5 +1,3 @@
 export default function Sandbox() {
-	return (
-		<div> Testing Page </div>
-	)
+  return <div>Testing Page</div>;
 }

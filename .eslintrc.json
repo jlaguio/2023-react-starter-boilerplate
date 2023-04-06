@@ -7,13 +7,14 @@
         "import/resolver": {
             "typescript": {}
         }
-    },    
+    },
     "extends": [
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@typescript-eslint/recommended-requiring-type-checking",
         "plugin:react/recommended",
-        "plugin:react/jsx-runtime"
+        "plugin:react/jsx-runtime",
+        "prettier"
     ],
     "parser": "@typescript-eslint/parser",
     "parserOptions": {
@@ -29,21 +30,7 @@
         "simple-import-sort",
         "import"
     ],
-    "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "never"
-        ],
-        "linebreak-style": 0
-    },
+    "rules": {},
     "overrides": [
         {
             "files": [
@@ -51,21 +38,24 @@
                 "**/*.ts"
             ],
             "rules": {
-                "unused-imports/no-unused-imports": "error",
-                "unused-imports/no-unused-vars": "warn",
-
+                "unused-imports/no-unused-vars": 0,
                 // We use `simple-import-sort` for this
+                "unused-imports/no-unused-imports": "error",
                 "sort-imports": 0,
                 "simple-import-sort/imports": "error",
                 "simple-import-sort/exports": "error"
-            
             }
         },
         {
             "files": [
                 "**/*.tsx"
             ],
-            "rules": { }
+            "parserOptions": {
+                "ecmaFeatures": {
+                    "jsx": true
+                }
+            },
+            "rules": {}
         }
     ]
 }

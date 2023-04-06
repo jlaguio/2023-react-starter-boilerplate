@@ -1,3 +1,5 @@
 export default function Home() {
-	return <h1>Jabol Home</h1>
+  const text = 'Welcome Home!';
+
+  return <h1>{text}</h1>;
 }
